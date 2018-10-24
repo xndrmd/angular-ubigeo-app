@@ -6,7 +6,7 @@
 </div>
 
 <label class="button">
-    Selecciona un archivo...
+    {{filename ? filename : 'Selecciona un archivo...'}}
     <input #file type="file" (change)="onFileChange($event)" accept=".txt" />
 </label>
 <button type="button" (click)="onLimpiarClick()">Limpiar!</button>

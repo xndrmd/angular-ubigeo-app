@@ -29,14 +29,14 @@ export class ArchivoPlanoService {
   }
 
   private parseResult(result: string): Ubigeo[] {
-    const lineas = result.split(/\n\r|\n/);
+    const lineas = result.split(/\r\n|\n/);
     return lineas.map(v => {
       return this.parseLine(v);
     });
   }
 
   private parseLine(line: string): Ubigeo {
-    const ubigeo = line.split('/');
+    const ubigeo = line.trim().slice(1, -1).split('/');
 
     if (ubigeo.length !== 3) {
       throw new Error('No debe existir más de dos \'/\' por linea');

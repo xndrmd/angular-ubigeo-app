@@ -15,7 +15,10 @@ export class AppComponent {
   provincias: Ubigeo[] = [];
   distritos: Ubigeo[] = [];
 
-  @ViewChild('file') file: ElementRef;
+  filename = '';
+
+  @ViewChild('file')
+  file: ElementRef;
 
   constructor(private planoService: ArchivoPlanoService) {}
 
@@ -24,6 +27,8 @@ export class AppComponent {
     if (!file) {
       return;
     }
+
+    this.filename = file.name;
 
     this.planoService.readFile(file).subscribe(
       x => {
@@ -36,6 +41,8 @@ export class AppComponent {
   }
 
   onLimpiarClick(): void {
+    this.filename = '';
+
     this.file.nativeElement.value = '';
 
     this.departamentos = [];
