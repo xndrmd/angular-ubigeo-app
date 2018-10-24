@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>C&oacute;digo</th>
+      <th>Nombre</th>
+      <th>C&oacute;digo Padre</th>
+      <th>Descripci&oacute;n Padre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ubigeo of ubigeos">
+      <td>{{ubigeo.id}}</td>
+      <td>{{ubigeo.nombre}}</td>
+      <td>{{ubigeo.padre ? ubigeo.padre.id : '-'}}</td>
+      <td>{{ubigeo.padre ? ubigeo.padre.nombre : '-'}}</td>
+    </tr>
+  </tbody>
+</table>
